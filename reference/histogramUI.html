@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>logistic.display2: Modified epiDisplay's logistic.display function. — logistic.display2 • jsmodule</title>
+<title>histogramUI: shiny module UI for histogram — histogramUI • jsmodule</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
 
 
 
-<meta property="og:title" content="logistic.display2: Modified epiDisplay's logistic.display function. — logistic.display2" />
-<meta property="og:description" content="Modified epiDisplay's logistic.display function for reactive data." />
+<meta property="og:title" content="histogramUI: shiny module UI for histogram — histogramUI" />
+<meta property="og:description" content="Shiny module UI for histogram" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -123,79 +123,66 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>logistic.display2: Modified epiDisplay's logistic.display function.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jinseob2kim/jsmodule/blob/master/R/display2.R'><code>R/display2.R</code></a></small>
-    <div class="hidden name"><code>logistic.display2.Rd</code></div>
+    <h1>histogramUI: shiny module UI for histogram</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jinseob2kim/jsmodule/blob/master/R/histogram.R'><code>R/histogram.R</code></a></small>
+    <div class="hidden name"><code>histogramUI.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Modified epiDisplay's logistic.display function for reactive data.</p>
+    <p>Shiny module UI for histogram</p>
     </div>
 
-    <pre class="usage"><span class='fu'>logistic.display2</span>(
-  <span class='no'>logistic.model</span>,
-  <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>crude</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>crude.p.value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>decimal</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>simplified</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>histogramUI</span>(<span class='no'>id</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"histogram"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>logistic.model</th>
-      <td><p>glm object(binomial)</p></td>
+      <th>id</th>
+      <td><p>id</p></td>
     </tr>
     <tr>
-      <th>alpha</th>
-      <td><p>alpha, Default: 0.05</p></td>
-    </tr>
-    <tr>
-      <th>crude</th>
-      <td><p>crude, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>crude.p.value</th>
-      <td><p>crude.p.value, Default: FALSE</p></td>
-    </tr>
-    <tr>
-      <th>decimal</th>
-      <td><p>decimal, Default: 2</p></td>
-    </tr>
-    <tr>
-      <th>simplified</th>
-      <td><p>simplified, Default: FALSE</p></td>
+      <th>label</th>
+      <td><p>label</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>logistic table</p>
+    <p>Shiny module UI for histogram</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Modified epiDisplay's logistic.display function for reactive data.</p>
+    <p>Shiny module UI for histogram</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>model1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span>(<span class='no'>am</span> ~ <span class='no'>cyl</span> + <span class='no'>disp</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>, <span class='kw'>family</span> <span class='kw'>=</span> <span class='no'>binomial</span>)
-<span class='fu'>logistic.display2</span>(<span class='no'>model1</span>, <span class='kw'>crude</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crude.p.value</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>decimal</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; 
-#&gt; Logistic regression predicting am 
-#&gt;  
-#&gt;                   crude OR(95%CI)      crude P value adj. OR(95%CI)      
-#&gt; cyl (cont. var.)  0.501 (0.305,0.824)  0.0064        2.102 (0.514,8.604) 
-#&gt;                                                                          
-#&gt; disp (cont. var.) 0.986 (0.976,0.996)  0.0047        0.973 (0.946,1.001) 
-#&gt;                                                                          
-#&gt;                   P(Wald's test) P(LR-test)
-#&gt; cyl (cont. var.)  0.3015         0.2845    
-#&gt;                                            
-#&gt; disp (cont. var.) 0.0558         0.0205    
-#&gt;                                            
-#&gt; Log-likelihood = -14.29311
-#&gt; No. of observations = 32
-#&gt; AIC value = 34.58622
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggpubr</span>)
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sidebarLayout.html'>sidebarLayout</a></span>(
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sidebarLayout.html'>sidebarPanel</a></span>(
+      <span class='fu'>histogramUI</span>(<span class='st'>"histogram"</span>)
+    ),
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sidebarLayout.html'>mainPanel</a></span>(
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span>(<span class='st'>"histogram"</span>),
+      <span class='fu'><a href='ggplotdownUI.html'>ggplotdownUI</a></span>(<span class='st'>"histogram"</span>)
+    )
+  )
+)
+
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>, <span class='no'>session</span>) {
+  <span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reactive.html'>reactive</a></span>(<span class='no'>mtcars</span>)
+  <span class='no'>data.label</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reactive.html'>reactive</a></span>(<span class='kw pkg'>jstable</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/jstable/man/mk.lev.html'>mk.lev</a></span>(<span class='no'>mtcars</span>))
+
+  <span class='no'>out_histogram</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='histogramServer.html'>histogramServer</a></span>(<span class='st'>"histogram"</span>,
+    <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>data</span>, <span class='kw'>data_label</span> <span class='kw'>=</span> <span class='no'>data.label</span>,
+    <span class='kw'>data_varStruct</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  )
+
+  <span class='no'>output</span>$<span class='no'>histogram</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>({
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>out_histogram</span>())
+  })
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
